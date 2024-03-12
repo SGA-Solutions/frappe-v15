@@ -449,7 +449,7 @@ frappe.views.Workspace = class Workspace {
 		}
 
 		this.clear_page_actions();
-
+		if(frappe.user_roles.indexOf('Workspace Manager') != -1){
 		this.page.set_secondary_action(
 			__("Edit"),
 			async () => {
@@ -471,6 +471,7 @@ frappe.views.Workspace = class Workspace {
 		this.page.add_inner_button(__("Create Workspace"), () => {
 			this.initialize_new_page();
 		});
+		}
 	}
 
 	initialize_editorjs_undo() {
